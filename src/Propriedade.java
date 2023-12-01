@@ -1,4 +1,4 @@
-public class Propriedade implements TabuleiroPosicao {
+public class Propriedade implements Casa {
     private int posicao;
     private String nome;
     private String grupo;
@@ -26,12 +26,16 @@ public class Propriedade implements TabuleiroPosicao {
 
     @Override
     public String getNome() {
-        return null;
+        return nome;
+    }
+
+    @Override
+    public int getPosicao() {
+        return posicao;
     }
 
     @Override
     public void executarAcao(Jogador jogador) {
-
+        System.out.println(" e o peão avançou para " + getPosicao() + " – " + getNome());
     }
-
 }

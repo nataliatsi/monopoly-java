@@ -8,6 +8,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        Tabuleiro tabuleiro = new Tabuleiro();
+
         System.out.print("Entre com o número de jogadores [2-8]: ");
         int numJogadores = scanner.nextInt();
         scanner.nextLine();
@@ -39,10 +41,10 @@ public class Main {
 
             cores.remove(jogadorCor);
 
-            jogadores.add(new Jogador(jogadorNome, jogadorCor, 0));
+            jogadores.add(new Jogador(jogadorNome, jogadorCor, new Peca(jogadorNome)));
         }
 
-        System.out.println("O jogo Monopoly foi iniciado.");
+        System.out.println("\nO jogo Monopólio foi iniciado.\n");
 
         int jogadorAtual = 0;
         boolean jogoEncerrado = false;
@@ -56,13 +58,13 @@ public class Main {
             String comando = scanner.nextLine();
 
             if ("sair".equalsIgnoreCase(comando)) {
-                System.out.print("Você tem certeza de que quer sair (Sim/Não)? ");
+                System.out.print("\nVocê tem certeza de que quer sair (Sim/Não)? ");
                 String confirmacao = scanner.nextLine();
                 if ("Sim".equalsIgnoreCase(confirmacao)) {
-                    System.out.println("Jogo encerrado.");
+                    System.out.println("\nJogo encerrado.");
                     jogoEncerrado = true;
                 } else {
-                    System.out.println("Continuando o jogo.");
+                    System.out.println("\nContinuando o jogo.\n");
                 }
             } else if ("jogar".equalsIgnoreCase(comando)) {
 
@@ -70,13 +72,15 @@ public class Main {
                 int dado2 = lancarDado();
                 int resultadoDados = dado1 + dado2;
 
-                System.out.println("O jogador " + jogador.getNome() + " tirou " + dado1 + "," + dado2 +
-                        " e o peão avançou para " + resultadoDados +  ".");
+                System.out.print("O jogador " + jogador.getNome() + " tirou " + dado1 + "," + dado2);
 
-                int novaPosicao = (jogador.getPosicao() + resultadoDados) % 40;
-                jogador.setPosicao(novaPosicao);
+                Peca peca = jogador.getPeca();
+                peca.mover(resultadoDados);
+                int novaPosicao = peca.getPosicao();
 
-                tratarConsequencias(jogador, resultadoDados);
+                Casa casaAtual = tabuleiro.getCasaNaPosicao(novaPosicao);
+                casaAtual.executarAcao(jogador);
+                System.out.println("\n");
 
                 jogadorAtual = (jogadorAtual + 1) % numJogadores;
             }
@@ -89,10 +93,4 @@ public class Main {
         Random rand = new Random();
         return rand.nextInt(6) + 1;
     }
-
-    private static void tratarConsequencias(Jogador jogador, int resultadoDados) {
-        // Lógica para determinar o que acontece com o jogador com base no resultado dos dados
-        System.out.println("Nada aconteceu.");
-    }
-
 }

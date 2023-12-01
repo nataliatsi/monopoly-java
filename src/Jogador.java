@@ -1,33 +1,42 @@
 public class Jogador {
     private String nome;
     private String cor;
-    private int posicao;
+    private Peca peca;
 
-    public Jogador(String nome, String cor, int posicao){
+    public Jogador(String nome, String cor, Peca peca) {
         this.nome = nome;
         this.cor = cor;
-        this.posicao = 0;
+        this.peca = peca;
     }
 
-    public int getPosicao(){
-        return posicao;
-    }
-    public void setPosicao(int posicao){
-        this.posicao = posicao;
-    }
     public String getNome() {
         return nome;
     }
+
     public String getCor() {
         return cor;
     }
 
+    public Peca getPeca() {
+        return peca;
+    }
+
+    /*
+    public void comprarPropriedade(Propriedade propriedade) {
+        // comprar a propriedade
+    }
+
+    public void pagarAluguel(Jogador proprietario, int valor) {
+        // pagar o aluguel ao proprietário
+    }
+    */
+
     @Override
     public String toString() {
-        return "Player{" +
+        return "Jogador{" +
                 "nome='" + nome + '\'' +
                 ", cor='" + cor + '\'' +
-                ", posição=" + posicao +
+                ", peca=" + peca +
                 '}';
     }
 }
