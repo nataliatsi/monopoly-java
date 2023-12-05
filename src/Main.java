@@ -18,7 +18,8 @@ public class Main {
             return;
         }
 
-        List<Jogador> jogadores = new ArrayList<>();
+        List<Peca> pecas = new ArrayList<>();
+
         List<String> addCores = Arrays.asList("preto", "branco", "vermelho", "verde", "azul", "amarelo", "laranja", "rosa");
         List<String> cores = new ArrayList<>(addCores);
 
@@ -41,7 +42,8 @@ public class Main {
 
             cores.remove(jogadorCor);
 
-            jogadores.add(new Jogador(jogadorNome, jogadorCor, new Peca(jogadorNome)));
+            Peca peca = new Peca(new Jogador(jogadorNome, jogadorCor), tabuleiro);
+            pecas.add(peca);
         }
 
         System.out.println("\nO jogo Monopólio foi iniciado.\n");
@@ -50,10 +52,10 @@ public class Main {
         boolean jogoEncerrado = false;
 
         while (!jogoEncerrado) {
-            Jogador jogador = jogadores.get(jogadorAtual);
+            Peca peca = pecas.get(jogadorAtual);
 
-            System.out.println("A jogada de " + jogador.getNome() + " começou.");
-            System.out.println("Comandos disponíveis: [jogar][sair]");
+            System.out.println("A jogada de " + peca.getJogador().getNome() + " começou.");
+            System.out.println("Comandos disponíveis: [jogar][status][sair]");
             System.out.print("Entre com um comando: ");
             String comando = scanner.nextLine();
 
@@ -72,17 +74,22 @@ public class Main {
                 int dado2 = lancarDado();
                 int resultadoDados = dado1 + dado2;
 
-                System.out.print("O jogador " + jogador.getNome() + " tirou " + dado1 + "," + dado2);
+                System.out.print("O jogador " + peca.getJogador().getNome() + " tirou " + dado1 + "," + dado2);
 
-                Peca peca = jogador.getPeca();
                 peca.mover(resultadoDados);
-                int novaPosicao = peca.getPosicao();
+                int novaPosicao = peca.getPosicao() % 40;
+                if (novaPosicao == 0) {
+                    novaPosicao = 40;
+                }
 
                 Casa casaAtual = tabuleiro.getCasaNaPosicao(novaPosicao);
-                casaAtual.executarAcao(jogador);
+                casaAtual.executarAcao(peca);
+
                 System.out.println("\n");
 
                 jogadorAtual = (jogadorAtual + 1) % numJogadores;
+            } else if ("status".equalsIgnoreCase(comando)) {
+                peca.status();
             }
         }
 

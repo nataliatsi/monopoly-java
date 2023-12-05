@@ -1,4 +1,4 @@
-public class Ferrovia implements Casa {
+public class Ferrovia extends Casa {
     private int posicao;
     private String nome;
     private int preco;
@@ -6,24 +6,14 @@ public class Ferrovia implements Casa {
 
 
     public Ferrovia(int posicao, String nome, int preco, int hipoteca) {
-        this.posicao = posicao;
-        this.nome = nome;
+        super(posicao, nome);
         this.preco = preco;
         this.hipoteca = hipoteca;
 
     }
-    @Override
-    public String getNome() {
-        return nome;
-    }
 
     @Override
-    public int getPosicao() {
-        return posicao;
-    }
-
-    @Override
-    public void executarAcao(Jogador jogador) {
+    public void executarAcao(Peca peca) {
         System.out.println(" e o peão avançou para " + getPosicao() + " – " + getNome());
     }
 

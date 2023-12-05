@@ -1,4 +1,4 @@
-public class Propriedade implements Casa {
+public class Propriedade extends Casa {
     private int posicao;
     private String nome;
     private String grupo;
@@ -10,6 +10,7 @@ public class Propriedade implements Casa {
     private int precoDaCasa;
 
     public Propriedade(int posicao, String nome, String grupo, int preco, int aluguelSemCasas, int aluguelComUmaCasa, int aluguelComDuasCasa, int aluguelComTresCasa, int aluguelComQuatroCasa, int hotel, int hipoteca, int precoDaCasa) {
+        super(posicao, nome);
         this.posicao = posicao;
         this.nome = nome;
         this.grupo = grupo;
@@ -25,17 +26,7 @@ public class Propriedade implements Casa {
     }
 
     @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public int getPosicao() {
-        return posicao;
-    }
-
-    @Override
-    public void executarAcao(Jogador jogador) {
+    public void executarAcao(Peca peca) {
         System.out.println(" e o peão avançou para " + getPosicao() + " – " + getNome());
     }
 }

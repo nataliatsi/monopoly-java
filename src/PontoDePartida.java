@@ -1,25 +1,13 @@
-public class PontoDePartida implements Casa {
+public class PontoDePartida extends Casa {
     private int posicao;
     private String nome;
 
     public PontoDePartida(int posicao, String nome) {
-        this.posicao = posicao;
-        this.nome = nome;
+        super(posicao, nome);
     }
 
     @Override
-    public String getNome() {
-        return null;
-    }
-
-    @Override
-    public int getPosicao() {
-        return 0;
-    }
-
-    @Override
-    public void executarAcao(Jogador jogador) {
+    public void executarAcao(Peca peca) {
         System.out.println(getNome());
-
     }
 }

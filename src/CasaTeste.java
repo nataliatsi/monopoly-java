@@ -1,23 +1,12 @@
-public class CasaTeste implements Casa {
+public class CasaTeste extends Casa {
     private int posicao;
     private String nome;
 
     public CasaTeste(int posicao, String nome){
-        this.posicao = posicao;
-        this.nome = nome;
+        super(posicao, nome);
     }
     @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public int getPosicao() {
-        return posicao;
-    }
-
-    @Override
-    public void executarAcao(Jogador jogador) {
+    public void executarAcao(Peca peca) {
         System.out.println(" e o peão avançou para " + getPosicao() + " – " + getNome());
 
     }

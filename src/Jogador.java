@@ -1,12 +1,16 @@
+import java.util.ArrayList;
+
 public class Jogador {
     private String nome;
     private String cor;
-    private Peca peca;
+    private int dinheiro;
+    private ArrayList<Titulo> titulos = new ArrayList<>();
 
-    public Jogador(String nome, String cor, Peca peca) {
+    public Jogador(String nome, String cor) {
         this.nome = nome;
         this.cor = cor;
-        this.peca = peca;
+
+        dinheiro = 1500;
     }
 
     public String getNome() {
@@ -17,26 +21,39 @@ public class Jogador {
         return cor;
     }
 
-    public Peca getPeca() {
-        return peca;
+    public int getDinheiro(){
+        return dinheiro;
     }
 
-    /*
-    public void comprarPropriedade(Propriedade propriedade) {
-        // comprar a propriedade
+    public void adicionarTitulo(Titulo titulo) {
+        titulos.add(titulo);
     }
 
-    public void pagarAluguel(Jogador proprietario, int valor) {
-        // pagar o aluguel ao proprietário
+    public ArrayList<Titulo> getTitulos() {
+        return titulos;
     }
-    */
 
     @Override
     public String toString() {
-        return "Jogador{" +
+        StringBuilder stringBuilder = new StringBuilder("Jogador{" +
                 "nome='" + nome + '\'' +
-                ", cor='" + cor + '\'' +
-                ", peca=" + peca +
-                '}';
+                ", cor='" + cor +
+                ", dinheiro=" + dinheiro +
+                ", titulos=");
+
+        if (titulos.isEmpty()) {
+            stringBuilder.append("Nenhum título");
+        } else {
+            for (Titulo titulo : titulos) {
+                stringBuilder.append("\n").append(titulo);
+            }
+        }
+
+        return stringBuilder.toString();
     }
+
 }
+
+
+
+

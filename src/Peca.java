@@ -1,14 +1,18 @@
-public class Peca {
-    private String jogadorNome;
-    private int posicao;
+import java.util.ArrayList;
 
-    public Peca(String jogadorNome) {
-        this.jogadorNome = jogadorNome;
+public class Peca {
+    private Jogador jogador;
+    private int posicao;
+    private Tabuleiro tabuleiro;
+
+    public Peca(Jogador jogador, Tabuleiro tabuleiro) {
+        this.jogador = jogador;
+        this.tabuleiro = tabuleiro;
         this.posicao = 0;
     }
 
-    public String getJogadorNome() {
-        return jogadorNome;
+    public Jogador getJogador() {
+        return jogador;
     }
 
     public int getPosicao() {
@@ -16,8 +20,26 @@ public class Peca {
     }
 
     public void mover(int passos) {
-        // Método para mover a peça por um número específico de casas no tabuleiro
         posicao += passos;
+    }
+
+    public void status() {
+        Casa nomePosicao = tabuleiro.getCasaNaPosicao(posicao);
+
+        System.out.println("O status do jogador " + jogador.getNome() + " – " + jogador.getCor() + " é o seguinte: ");
+        System.out.println("Situação na posição: " + getPosicao() + " – " + nomePosicao.getNome());
+        System.out.println("Possui $" + jogador.getDinheiro());
+
+        ArrayList<Titulo> titulos = jogador.getTitulos();
+        if (!titulos.isEmpty()) {
+            System.out.println("\nTítulos:");
+            for (Titulo titulo : titulos) {
+                System.out.println(titulo);
+            }
+        }
+        System.out.println("Título: " + titulos);
+        System.out.println("\n");
+
     }
 
 }
