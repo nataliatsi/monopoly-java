@@ -34,11 +34,11 @@ public class Peca {
         if (!titulos.isEmpty()) {
             System.out.println("\nTítulos:");
             for (Titulo titulo : titulos) {
-                System.out.println(titulo);
+                System.out.println(titulo.getNome());
             }
+        } else {
+            System.out.println("O jogador " + jogador.getNome() + " não possui títulos.\n");
         }
-        System.out.println("Título: " + titulos);
-        System.out.println("\n");
 
     }
 

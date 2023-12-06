@@ -7,7 +7,17 @@ public class PontoDePartida extends Casa {
     }
 
     @Override
+    public void oferecerCompra(Jogador jogador) {
+
+    }
+
+    @Override
+    public void venderPara(Jogador jogador) {
+
+    }
+
+    @Override
     public void executarAcao(Peca peca) {
-        System.out.println(getNome());
+        System.out.println(" e o peão avançou para " + getPosicao() + " – " + getNome());
     }
 }

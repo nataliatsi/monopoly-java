@@ -44,6 +44,7 @@ public class Main {
 
             Peca peca = new Peca(new Jogador(jogadorNome, jogadorCor), tabuleiro);
             pecas.add(peca);
+
         }
 
         System.out.println("\nO jogo Monopólio foi iniciado.\n");

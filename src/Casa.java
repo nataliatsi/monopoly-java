@@ -13,7 +13,9 @@ public abstract class Casa {
     public int getPosicao(){
         return posicao;
     }
-
+    public abstract void oferecerCompra(Jogador jogador);
+    public abstract void venderPara(Jogador jogador);
     public  abstract void executarAcao(Peca peca);
+
 
 }

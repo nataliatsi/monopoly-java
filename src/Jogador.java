@@ -25,6 +25,26 @@ public class Jogador {
         return dinheiro;
     }
 
+    public void comprarPropriedade(Propriedade propriedade) {
+        if (dinheiro >= propriedade.getPreco()) {
+            dinheiro -= propriedade.getPreco();
+            adicionarTitulo(new Titulo(propriedade.getNome(), propriedade.getGrupo(), propriedade.getPrecoDaCasa(),0));
+            System.out.println(getNome() + " comprou a propriedade " + propriedade.getNome() + " por $" + propriedade.getPreco() + ".");
+        } else {
+            System.out.println(getNome() + ", você não tem dinheiro suficiente para comprar esta propriedade.");
+        }
+    }
+
+    public void comprarFerrovia(Ferrovia ferrovia) {
+        if (dinheiro >= ferrovia.getPreco()) {
+            dinheiro -= ferrovia.getPreco();
+            adicionarTitulo(new Titulo(ferrovia.getNome(), " ", ferrovia.getPreco(),ferrovia.getHipoteca()));
+            System.out.println(getNome() + " comprou a ferrovia " + ferrovia.getNome() + " por $" + ferrovia.getPreco() + ".");
+        } else {
+            System.out.println(getNome() + ", você não tem dinheiro suficiente para comprar esta propriedade.");
+        }
+    }
+
     public void adicionarTitulo(Titulo titulo) {
         titulos.add(titulo);
     }
