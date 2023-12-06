@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
 public class Ferrovia extends Casa {
-    private int posicao;
-    private String nome;
     private int preco;
     private int hipoteca;
 
@@ -13,32 +11,12 @@ public class Ferrovia extends Casa {
         this.hipoteca = hipoteca;
 
     }
-
-    @Override
-    public int getPosicao() {
-        return posicao;
-    }
-    public void setPosicao(int posicao) {
-        this.posicao = posicao;
-    }
-    @Override
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
     public int getPreco() {
         return preco;
     }
-    public void setPreco(int preco) {
-        this.preco = preco;
-    }
+    public void setPreco(){ this.preco = preco; }
     public int getHipoteca() {
         return hipoteca;
-    }
-    public void setHipoteca(int hipoteca) {
-        this.hipoteca = hipoteca;
     }
 
     @Override

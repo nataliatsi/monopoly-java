@@ -24,6 +24,9 @@ public class Jogador {
     public int getDinheiro(){
         return dinheiro;
     }
+    public void aumentarDinheiro(int valor) {
+        dinheiro += valor;
+    }
 
     public void comprarPropriedade(Propriedade propriedade) {
         if (dinheiro >= propriedade.getPreco()) {
@@ -71,6 +74,7 @@ public class Jogador {
 
         return stringBuilder.toString();
     }
+
 
 }
 

@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
 public class Propriedade extends Casa {
-    private int posicao;
-    private String nome;
     private String grupo;
     private int preco;
     private int aluguelSemCasas;
@@ -13,8 +11,6 @@ public class Propriedade extends Casa {
 
     public Propriedade(int posicao, String nome, String grupo, int preco, int aluguelSemCasas, int aluguelComUmaCasa, int aluguelComDuasCasa, int aluguelComTresCasa, int aluguelComQuatroCasa, int hotel, int hipoteca, int precoDaCasa) {
         super(posicao, nome);
-        this.posicao = posicao;
-        this.nome = nome;
         this.grupo = grupo;
         this.preco = preco;
         this.aluguelSemCasas = aluguelSemCasas;
@@ -27,30 +23,8 @@ public class Propriedade extends Casa {
         this.precoDaCasa = precoDaCasa;
     }
 
-    @Override
-    public int getPosicao() {
-        return posicao;
-    }
-
-    public void setPosicao(int posicao) {
-        this.posicao = posicao;
-    }
-
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getGrupo() {
         return grupo;
-    }
-
-    public void setGrupo(String grupo) {
-        this.grupo = grupo;
     }
 
     public int getPreco() {
