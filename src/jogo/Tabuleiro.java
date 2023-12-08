@@ -1,3 +1,12 @@
+package jogo;
+
+import cartas.CofreComunitario;
+import cartas.Sorte;
+import casas.Casa;
+import casas.Ferrovia;
+import casas.PontoDePartida;
+import casas.Propriedade;
+
 import java.util.ArrayList;
 
 public class Tabuleiro {

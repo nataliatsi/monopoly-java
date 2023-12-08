@@ -1,4 +1,8 @@
-public class Cartas {
+package cartas;
+
+import jogo.Peca;
+
+public abstract class Cartas {
 
     private int numero;
     private String nome;
@@ -20,6 +24,7 @@ public class Cartas {
     public void setNumero(int numero) {
         this.numero = numero;
     }
+
 
     public String getNome() {
         return nome;
@@ -45,13 +50,6 @@ public class Cartas {
         this.observacoes = observacoes;
     }
 
-    @Override
-    public String toString() {
-        return "Cartas{ " +
-                "numero: " + numero +
-                ", nome: '" + nome + '\'' +
-                ", descrição: '" + descricao + '\'' +
-                ", observações: '" + observacoes + '\'' +
-                '}';
-    }
+    public abstract void executarAcao(Peca peca);
+
 }

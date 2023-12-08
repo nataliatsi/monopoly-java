@@ -1,3 +1,5 @@
+package jogo;
+
 import java.util.ArrayList;
 
 public class Peca {
@@ -23,11 +25,15 @@ public class Peca {
         posicao += passos;
     }
 
+    public String getNomeDaCasa(){
+        return tabuleiro.getCasaNaPosicao(posicao).getNome();
+    }
+
     public void status() {
-        Casa nomePosicao = tabuleiro.getCasaNaPosicao(posicao);
+        //Casa nomePosicao = tabuleiro.getCasaNaPosicao(posicao);
 
         System.out.println("O status do jogador " + jogador.getNome() + " – " + jogador.getCor() + " é o seguinte: ");
-        System.out.println("Situação na posição: " + getPosicao() + " – " + nomePosicao.getNome());
+        System.out.println("Situação na posição: " + getPosicao() + " – " + getNomeDaCasa());
         System.out.println("Possui $" + jogador.getDinheiro());
 
         ArrayList<Titulo> titulos = jogador.getTitulos();

@@ -1,3 +1,9 @@
+package casas;
+
+import casas.Casa;
+import jogo.Jogador;
+import jogo.Peca;
+
 import java.util.Scanner;
 
 public class Propriedade extends Casa {

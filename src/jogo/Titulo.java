@@ -1,3 +1,5 @@
+package jogo;
+
 public class Titulo {
     private String nome;
     private String cor;

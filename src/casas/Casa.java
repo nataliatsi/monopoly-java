@@ -1,3 +1,8 @@
+package casas;
+
+import jogo.Jogador;
+import jogo.Peca;
+
 public abstract class Casa {
     private int posicao;
     private String nome;

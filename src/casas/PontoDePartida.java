@@ -1,3 +1,9 @@
+package casas;
+
+import casas.Casa;
+import jogo.Jogador;
+import jogo.Peca;
+
 public class PontoDePartida extends Casa {
 
     public PontoDePartida(int posicao, String nome) {

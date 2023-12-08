@@ -1,3 +1,8 @@
+import casas.Casa;
+import jogo.Jogador;
+import jogo.Peca;
+import jogo.Tabuleiro;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

@@ -1,3 +1,8 @@
+package jogo;
+
+import casas.Ferrovia;
+import casas.Propriedade;
+
 import java.util.ArrayList;
 
 public class Jogador {
@@ -24,6 +29,7 @@ public class Jogador {
     public int getDinheiro(){
         return dinheiro;
     }
+    public void diminuirDinheiro(int valor){ dinheiro -= valor; }
     public void aumentarDinheiro(int valor) {
         dinheiro += valor;
     }
@@ -58,7 +64,7 @@ public class Jogador {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder("Jogador{" +
+        StringBuilder stringBuilder = new StringBuilder("jogo.Jogador{" +
                 "nome='" + nome + '\'' +
                 ", cor='" + cor +
                 ", dinheiro=" + dinheiro +
