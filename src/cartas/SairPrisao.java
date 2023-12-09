@@ -3,8 +3,8 @@ package cartas;
 import jogo.Peca;
 
 public class SairPrisao extends Cartas {
-    public SairPrisao(int numero, String nome, String descricao, String observacoes) {
-        super(numero, nome, descricao, observacoes);
+    public SairPrisao(int numero, String nome, String descricao) {
+        super(numero, nome, descricao);
     }
 
     @Override

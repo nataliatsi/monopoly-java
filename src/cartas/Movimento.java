@@ -6,19 +6,20 @@ import jogo.Peca;
 
 import java.util.List;
 
-public class Mover extends Cartas {
+public class Movimento extends Cartas {
 
     private int novaPosicao;
     private boolean podeReceberBonus;
-    private boolean moverParaFerrovia;
-    private boolean moverParaServicoPublico;
+    private boolean irParaFerrovia;
+    private boolean irParaServicoPublico;
+    private boolean irParaPrisao;
 
-    public Mover(int numero, String nome, String descricao, String observacoes, int novaPosicao, boolean podeReceberBonus, boolean moverParaFerrovia, boolean moverParaServicoPublico) {
-        super(numero, nome, descricao, observacoes);
+    public Movimento(int numero, String nome, String descricao, int novaPosicao, boolean podeReceberBonus, boolean irParaFerrovia, boolean irParaServicoPublico) {
+        super(numero, nome, descricao);
         this.novaPosicao = novaPosicao;
         this.podeReceberBonus = podeReceberBonus;
-        this.moverParaFerrovia = moverParaFerrovia;
-        this.moverParaServicoPublico = moverParaServicoPublico;
+        this.irParaFerrovia = irParaFerrovia;
+        this.irParaServicoPublico = irParaServicoPublico;
     }
 
     public int getNovaPosicao() {
@@ -37,20 +38,20 @@ public class Mover extends Cartas {
         this.podeReceberBonus = podeReceberBonus;
     }
 
-    public boolean isMoverParaFerrovia() {
-        return moverParaFerrovia;
+    public boolean isIrParaFerrovia() {
+        return irParaFerrovia;
     }
 
-    public void setMoverParaFerrovia(boolean moverParaFerrovia) {
-        this.moverParaFerrovia = moverParaFerrovia;
+    public void setIrParaFerrovia(boolean irParaFerrovia) {
+        this.irParaFerrovia = irParaFerrovia;
     }
 
-    public boolean isMoverParaServicoPublico() {
-        return moverParaServicoPublico;
+    public boolean isIrParaServicoPublico() {
+        return irParaServicoPublico;
     }
 
-    public void setMoverParaServicoPublico(boolean moverParaServicoPublico) {
-        this.moverParaServicoPublico = moverParaServicoPublico;
+    public void setIrParaServicoPublico(boolean irParaServicoPublico) {
+        this.irParaServicoPublico = irParaServicoPublico;
     }
 
     private Ferrovia encontrarFerroviaMaisProxima(int posicaoAtual, List<Ferrovia> ferrovias) {
@@ -101,14 +102,14 @@ public class Mover extends Cartas {
         System.out.println("\nAvançando para " + getNovaPosicao() + ".");
         int posicaoAtual = peca.getPosicao();
 
-        if(isMoverParaFerrovia()){
+        if(isIrParaFerrovia()){
 
             List<Ferrovia> ferrovias = peca.getFerrovias();
             Ferrovia ferroviaMaisProxima = encontrarFerroviaMaisProxima(posicaoAtual, ferrovias);
             peca.mover(ferroviaMaisProxima.getPosicao() - posicaoAtual);
             System.out.println("O peão avançou para " + ferroviaMaisProxima.getPosicao() + " – " + ferroviaMaisProxima.getNome() + ".");
 
-        } else if (isMoverParaServicoPublico()) {
+        } else if (isIrParaServicoPublico()) {
             List<ServicoPublico> servicoPublicos = peca.getServicoPublico();
             ServicoPublico servicoMaisProximo = encontrarServicoMaisProximo(posicaoAtual, servicoPublicos);
             peca.mover(servicoMaisProximo.getPosicao() - posicaoAtual);

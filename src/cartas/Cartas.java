@@ -7,13 +7,11 @@ public abstract class Cartas {
     private int numero;
     private String nome;
     private String descricao;
-    private String observacoes;
 
-    public Cartas(int numero, String nome, String descricao, String observacoes){
+    public Cartas(int numero, String nome, String descricao){
         this.numero = numero;
         this.nome = nome;
         this.descricao = descricao;
-        this.observacoes = observacoes;
 
     }
 
@@ -24,7 +22,6 @@ public abstract class Cartas {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
 
     public String getNome() {
         return nome;
@@ -40,14 +37,6 @@ public abstract class Cartas {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
     }
 
     public abstract void executarAcao(Peca peca);
