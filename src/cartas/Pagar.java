@@ -25,5 +25,6 @@ public class Pagar extends Cartas {
         peca.getJogador().diminuirDinheiro(pagar);
         int dinheiroAtual = peca.getJogador().getDinheiro();
         System.out.println("O jogador pagou $" + pagar + ". Novo saldo: $" + dinheiroAtual);
+
     }
 }

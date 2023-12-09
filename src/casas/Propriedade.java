@@ -14,6 +14,7 @@ public class Propriedade extends Casa {
     private int hotel;
     private int hipoteca;
     private int precoDaCasa;
+    private Jogador proprietario;
 
     public Propriedade(int posicao, String nome, String grupo, int preco, int aluguelSemCasas, int aluguelComUmaCasa, int aluguelComDuasCasa, int aluguelComTresCasa, int aluguelComQuatroCasa, int hotel, int hipoteca, int precoDaCasa) {
         super(posicao, nome);
@@ -27,6 +28,7 @@ public class Propriedade extends Casa {
         this.hotel = hotel;
         this.hipoteca = hipoteca;
         this.precoDaCasa = precoDaCasa;
+        this.proprietario = null;
     }
 
     public String getGrupo() {
@@ -105,6 +107,14 @@ public class Propriedade extends Casa {
         this.precoDaCasa = precoDaCasa;
     }
 
+    public Jogador getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(Jogador proprietario) {
+        this.proprietario = proprietario;
+    }
+
     @Override
     public void oferecerCompra(Jogador jogador) {
         Scanner scanner = new Scanner(System.in);
@@ -131,6 +141,10 @@ public class Propriedade extends Casa {
     @Override
     public void executarAcao(Peca peca) {
         System.out.println(" e o peão avançou para " + getPosicao() + " – " + getNome());
-        oferecerCompra(peca.getJogador());
+        if(getProprietario() == null) {
+            oferecerCompra(peca.getJogador());
+        }  else {
+        System.out.println("A propriedade " + getNome() + " já possui proprietário.");
+        }
     }
 }

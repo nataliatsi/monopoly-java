@@ -83,9 +83,10 @@ public class Main {
                 System.out.print("O jogador " + peca.getJogador().getNome() + " tirou " + dado1 + "," + dado2);
 
                 peca.mover(resultadoDados);
-                int novaPosicao = peca.getPosicao() % 40;
-                if (novaPosicao == 0) {
-                    novaPosicao = 40;
+
+                int novaPosicao = peca.getPosicao();
+                if (novaPosicao > 40) {
+                    novaPosicao -= 40;
                 }
 
                 Casa casaAtual = tabuleiro.getCasaNaPosicao(novaPosicao);

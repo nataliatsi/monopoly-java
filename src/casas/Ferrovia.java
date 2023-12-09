@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Ferrovia extends Casa {
     private int preco;
     private int hipoteca;
-
+    private  Jogador proprietario;
 
     public Ferrovia(int posicao, String nome, int preco, int hipoteca) {
         super(posicao, nome);
@@ -23,6 +23,13 @@ public class Ferrovia extends Casa {
     public void setPreco(){ this.preco = preco; }
     public int getHipoteca() {
         return hipoteca;
+    }
+    public Jogador getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(Jogador proprietario) {
+        this.proprietario = proprietario;
     }
 
     @Override
@@ -51,7 +58,11 @@ public class Ferrovia extends Casa {
     @Override
     public void executarAcao(Peca peca) {
         System.out.println(" e o peão avançou para " + getPosicao() + " – " + getNome());
-        oferecerCompra(peca.getJogador());
+        if(getProprietario() == null) {
+            oferecerCompra(peca.getJogador());
+        }  else {
+            System.out.println("A ferrovia " + getNome() + " já possui proprietário.");
+        }
     }
 
 }
