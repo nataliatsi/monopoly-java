@@ -1,4 +1,5 @@
 import casas.Casa;
+import jogo.Dado;
 import jogo.Jogador;
 import jogo.Peca;
 import jogo.Tabuleiro;
@@ -6,13 +7,13 @@ import jogo.Tabuleiro;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
+        Scanner scanner = new Scanner(System.in);
+        Dado dado = new Dado();
         Tabuleiro tabuleiro = new Tabuleiro();
 
         System.out.print("Entre com o número de jogadores [2-8]: ");
@@ -57,6 +58,7 @@ public class Main {
         int jogadorAtual = 0;
         boolean jogoEncerrado = false;
 
+
         while (!jogoEncerrado) {
             Peca peca = pecas.get(jogadorAtual);
 
@@ -76,12 +78,11 @@ public class Main {
                 }
             } else if ("jogar".equalsIgnoreCase(comando)) {
 
-                int dado1 = lancarDado();
-                int dado2 = lancarDado();
+                int dado1 = dado.lancarDado();
+                int dado2 = dado.lancarDado();
                 int resultadoDados = dado1 + dado2;
 
                 System.out.print("O jogador " + peca.getJogador().getNome() + " tirou " + dado1 + "," + dado2);
-
                 peca.mover(resultadoDados);
 
                 int novaPosicao = peca.getPosicao();
@@ -95,6 +96,7 @@ public class Main {
                 System.out.println("\n");
 
                 jogadorAtual = (jogadorAtual + 1) % numJogadores;
+
             } else if ("status".equalsIgnoreCase(comando)) {
                 peca.status();
             }
@@ -103,8 +105,4 @@ public class Main {
         scanner.close();
     }
 
-    private static int lancarDado() {
-        Random rand = new Random();
-        return rand.nextInt(6) + 1;
-    }
 }

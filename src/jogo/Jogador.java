@@ -9,25 +9,31 @@ public class Jogador {
     private String nome;
     private String cor;
     private int dinheiro;
+    private boolean naPrisao;
     private ArrayList<Titulo> titulos = new ArrayList<>();
 
     public Jogador(String nome, String cor) {
         this.nome = nome;
         this.cor = cor;
 
+        naPrisao = false;
         dinheiro = 1500;
     }
 
     public String getNome() {
         return nome;
     }
-
     public String getCor() {
         return cor;
     }
-
     public int getDinheiro(){
         return dinheiro;
+    }
+    public boolean isNaPrisao() {
+        return naPrisao;
+    }
+    public void setNaPrisao(boolean naPrisao) {
+        this.naPrisao = naPrisao;
     }
     public void diminuirDinheiro(int valor){ dinheiro -= valor; }
     public void aumentarDinheiro(int valor) {
@@ -44,7 +50,6 @@ public class Jogador {
                 System.out.println(getNome() + ", você não tem dinheiro suficiente para comprar esta propriedade.");
             }
     }
-
 
     public void comprarFerrovia(Ferrovia ferrovia) {
         if (dinheiro >= ferrovia.getPreco()) {

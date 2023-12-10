@@ -23,7 +23,9 @@ public class Peca {
     public Jogador getJogador() {
         return jogador;
     }
-
+    public Tabuleiro getTabuleiro() {
+        return tabuleiro;
+    }
     public int getPosicao() {
         return posicao;
     }
