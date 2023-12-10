@@ -14,8 +14,8 @@ public class CofreComunitario extends Casa {
     private ArrayList<Cartas> cartas;
     private int indexAtual;
 
-    public CofreComunitario(int posicao, String nome){
-        super(posicao, nome);
+    public CofreComunitario(int posicao, String nome, boolean estaNaPrisao){
+        super(posicao, nome, estaNaPrisao);
         this.indexAtual = 0;
         this.cartas = new ArrayList<>();
         inicializarCartas();

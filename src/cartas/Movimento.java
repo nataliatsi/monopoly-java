@@ -1,7 +1,7 @@
 package cartas;
 
-import casas.Ferrovia;
 import casas.ServicoPublico;
+import casas.Ferrovia;
 import jogo.Peca;
 
 import java.util.List;
@@ -26,32 +26,16 @@ public class Movimento extends Cartas {
         return novaPosicao;
     }
 
-    public void setNovaPosicao(int novaPosicao) {
-        this.novaPosicao = novaPosicao;
-    }
-
     public boolean isPodeReceberBonus() {
         return podeReceberBonus;
-    }
-
-    public void setPodeReceberBonus(boolean podeReceberBonus) {
-        this.podeReceberBonus = podeReceberBonus;
     }
 
     public boolean isIrParaFerrovia() {
         return irParaFerrovia;
     }
 
-    public void setIrParaFerrovia(boolean irParaFerrovia) {
-        this.irParaFerrovia = irParaFerrovia;
-    }
-
     public boolean isIrParaServicoPublico() {
         return irParaServicoPublico;
-    }
-
-    public void setIrParaServicoPublico(boolean irParaServicoPublico) {
-        this.irParaServicoPublico = irParaServicoPublico;
     }
 
     private Ferrovia encontrarFerroviaMaisProxima(int posicaoAtual, List<Ferrovia> ferrovias) {

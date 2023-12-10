@@ -4,8 +4,8 @@ import jogo.Jogador;
 import jogo.Peca;
 
 public class CasaTeste extends Casa{
-    public CasaTeste(int posicao, String nome) {
-        super(posicao, nome);
+    public CasaTeste(int posicao, String nome, boolean estaNaPrisao) {
+        super(posicao, nome, estaNaPrisao);
     }
 
     @Override
@@ -20,6 +20,7 @@ public class CasaTeste extends Casa{
 
     @Override
     public void executarAcao(Peca peca) {
+        System.out.println(" e o peão avançõu para " + peca.getPosicao() + " – " + getNome());
 
     }
 }

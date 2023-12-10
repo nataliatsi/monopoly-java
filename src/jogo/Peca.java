@@ -8,14 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Peca {
-    private Jogador jogador;
+    private final Jogador jogador;
+    private final Tabuleiro tabuleiro;
     private int posicao;
-    private Tabuleiro tabuleiro;
+    private int jogadasSeguidas;
 
     public Peca(Jogador jogador, Tabuleiro tabuleiro) {
         this.jogador = jogador;
         this.tabuleiro = tabuleiro;
         this.posicao = 0;
+        this.jogadasSeguidas = 0;
     }
 
     public Jogador getJogador() {
@@ -31,8 +33,21 @@ public class Peca {
         posicao = (posicao + passos - 1) % 40 + 1;
     }
 
+    public int getJogadasSeguidas() {
+        return jogadasSeguidas;
+    }
+
+    public void incrementarJogadas() {
+        jogadasSeguidas++;
+    }
+
+    public void resetarJogadas() {
+        jogadasSeguidas = 0;
+    }
+
     public String getNomeDaCasa(){
-        return tabuleiro.getCasaNaPosicao(posicao).getNome();
+        Casa getCasa = tabuleiro.getCasaNaPosicao(posicao);
+        return getCasa.getNome();
     }
 
     public List<Ferrovia> getFerrovias(){
@@ -44,20 +59,22 @@ public class Peca {
     }
 
     public void status() {
-        Casa nomePosicao = tabuleiro.getCasaNaPosicao(posicao);
 
         System.out.println("O status do jogador " + jogador.getNome() + " – " + jogador.getCor() + " é o seguinte: ");
-        System.out.println("Situação na posição: " + getPosicao() + " – " + nomePosicao.getNome());
+        System.out.println("Situação na posição: " + getPosicao() + " – " + getNomeDaCasa());
         System.out.println("Possui $" + jogador.getDinheiro());
 
         ArrayList<Titulo> titulos = jogador.getTitulos();
         if (!titulos.isEmpty()) {
+
             System.out.println("\nTítulos:");
             for (Titulo titulo : titulos) {
                 System.out.println(titulo.getNome());
             }
             System.out.println("\n");
+
         } else {
+
             System.out.println("O jogador " + jogador.getNome() + " não possui títulos.\n");
         }
 

@@ -16,8 +16,8 @@ public class Propriedade extends Casa {
     private int precoDaCasa;
     private Jogador proprietario;
 
-    public Propriedade(int posicao, String nome, String grupo, int preco, int aluguelSemCasas, int aluguelComUmaCasa, int aluguelComDuasCasa, int aluguelComTresCasa, int aluguelComQuatroCasa, int hotel, int hipoteca, int precoDaCasa) {
-        super(posicao, nome);
+    public Propriedade(int posicao, String nome, boolean estaNaPrisao, String grupo, int preco, int aluguelSemCasas, int aluguelComUmaCasa, int aluguelComDuasCasa, int aluguelComTresCasa, int aluguelComQuatroCasa, int hotel, int hipoteca, int precoDaCasa) {
+        super(posicao, nome, estaNaPrisao);
         this.grupo = grupo;
         this.preco = preco;
         this.aluguelSemCasas = aluguelSemCasas;

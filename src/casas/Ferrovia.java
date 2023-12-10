@@ -11,8 +11,8 @@ public class Ferrovia extends Casa {
     private int hipoteca;
     private  Jogador proprietario;
 
-    public Ferrovia(int posicao, String nome, int preco, int hipoteca) {
-        super(posicao, nome);
+    public Ferrovia(int posicao, String nome, boolean estaNaPrisao, int preco, int hipoteca) {
+        super(posicao, nome, estaNaPrisao);
         this.preco = preco;
         this.hipoteca = hipoteca;
 
