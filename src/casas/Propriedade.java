@@ -141,10 +141,21 @@ public class Propriedade extends Casa {
     @Override
     public void executarAcao(Peca peca) {
         System.out.println(" e o peão avançou para " + getPosicao() + " – " + getNome());
-        if(getProprietario() == null) {
+
+        if (getProprietario() != null) {
+            System.out.println("A propriedade " + getNome() + " já possui proprietário.");
+
+            int taxa = getAluguelSemCasas();
+
+            peca.getJogador().diminuirDinheiro(taxa);
+            getProprietario().aumentarDinheiro(taxa);
+
+            System.out.println("O jogador " + peca.getJogador().getNome() + " pagou o aluguel de $" + taxa +
+                    " para " + getProprietario().getNome());
+            System.out.println("Novo saldo: $" + peca.getJogador().getDinheiro());
+
+        } else {
             oferecerCompra(peca.getJogador());
-        }  else {
-        System.out.println("A propriedade " + getNome() + " já possui proprietário.");
         }
     }
 }

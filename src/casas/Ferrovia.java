@@ -58,10 +58,21 @@ public class Ferrovia extends Casa {
     @Override
     public void executarAcao(Peca peca) {
         System.out.println(" e o peão avançou para " + getPosicao() + " – " + getNome());
-        if(getProprietario() == null) {
-            oferecerCompra(peca.getJogador());
-        }  else {
+
+        if (getProprietario() != null) {
             System.out.println("A ferrovia " + getNome() + " já possui proprietário.");
+
+            int taxa = getPreco();
+
+            peca.getJogador().diminuirDinheiro(taxa);
+            getProprietario().aumentarDinheiro(taxa);
+
+            System.out.println("O jogador " + peca.getJogador().getNome() + " pagou o aluguel de $" + taxa +
+                    " para " + getProprietario().getNome());
+            System.out.println("Novo saldo: $" + peca.getJogador().getDinheiro());
+
+        } else {
+            oferecerCompra(peca.getJogador());
         }
     }
 

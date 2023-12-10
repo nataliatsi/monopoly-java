@@ -28,7 +28,7 @@ public class Tabuleiro {
         casas.add(new Propriedade(9, "Connecticut Avenue", false,"ciano", 120, 8, 40, 100, 300, 450, 600, 60, 50));
         casas.add(new Prisao(10, "Prisão: Apenas Visitando", true, true));
         casas.add(new Propriedade(11, "St. Charles Place", false,"rosa", 140, 10, 50,150, 450, 625, 750, 70, 100));
-        casas.add(new ServicoPublico(12, "Companhia Elétrica", false));
+        casas.add(new ServicoPublico(12, "Companhia Elétrica", false, 150));
         casas.add(new Propriedade(13, "States Avenue", false, "rosa", 140, 10, 50, 150, 450, 625, 750, 70, 100));
         casas.add(new Propriedade(14, "Virginia Avenue", false,"rosa", 160, 12, 60, 180, 500, 700, 900, 80, 100));
         casas.add(new Ferrovia(15, "Pennsylvania Railroad", false, 200, 100));
@@ -44,7 +44,7 @@ public class Tabuleiro {
         casas.add(new Ferrovia(25, "B & O Railroad", false,200, 100));
         casas.add(new Propriedade(26, "Atlantic Avenue", false,"amarelo", 260, 22, 110, 330, 800, 975, 1150, 130, 150));
         casas.add(new Propriedade(27, "Ventnor Avenue", false,"amarelo", 260, 22, 110, 330, 800, 975, 1150, 130, 150));
-        casas.add(new ServicoPublico(28, "Companhia de Água", false));
+        casas.add(new ServicoPublico(28, "Companhia de Água", false, 150));
         casas.add(new Propriedade(29, "Marvin Gardens", false,"amarelo", 280, 24, 120, 360, 850, 1025, 1200, 140, 150));
         casas.add(new Prisao(30, "Vá para Prisão", true, false));
         casas.add(new Propriedade(31, "Pacific Avenue", false,"verde", 300, 26, 130, 390, 900, 1100, 1275, 150, 200));

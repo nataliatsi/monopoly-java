@@ -2,6 +2,7 @@ package jogo;
 
 import casas.Ferrovia;
 import casas.Propriedade;
+import casas.ServicoPublico;
 
 import java.util.ArrayList;
 
@@ -44,6 +45,7 @@ public class Jogador {
             if (dinheiro >= propriedade.getPreco()) {
                 dinheiro -= propriedade.getPreco();
                 propriedade.setProprietario(this);
+
                 adicionarTitulo(new Titulo(propriedade.getNome(), propriedade.getGrupo(), propriedade.getPrecoDaCasa(),0));
                 System.out.println(getNome() + " comprou a propriedade " + propriedade.getNome() + " por $" + propriedade.getPreco() + ".");
             } else {
@@ -54,11 +56,24 @@ public class Jogador {
     public void comprarFerrovia(Ferrovia ferrovia) {
         if (dinheiro >= ferrovia.getPreco()) {
             dinheiro -= ferrovia.getPreco();
+
             adicionarTitulo(new Titulo(ferrovia.getNome(), " ", ferrovia.getPreco(),ferrovia.getHipoteca()));
             System.out.println(getNome() + " comprou a ferrovia " + ferrovia.getNome() + " por $" + ferrovia.getPreco() + ".");
         } else {
-            System.out.println(getNome() + ", você não tem dinheiro suficiente para comprar esta propriedade.");
+            System.out.println(getNome() + ", você não tem dinheiro suficiente para comprar esta ferrovia.");
         }
+    }
+
+    public void comprarServicoPublico(ServicoPublico servicoPublico){
+        if(dinheiro >= servicoPublico.getPreco()){
+            dinheiro -= servicoPublico.getPreco();
+
+            adicionarTitulo(new Titulo(servicoPublico.getNome(), " ", servicoPublico.getPreco(), 150));
+            System.out.println(getNome() + " comprou o seviço público " + servicoPublico.getNome() + " por $" + servicoPublico.getPreco() + ".");
+        } else {
+            System.out.println(getNome() + ", você não tem dinheiro suficiente para comprar este serviço.");
+        }
+
     }
 
     public void adicionarTitulo(Titulo titulo) {

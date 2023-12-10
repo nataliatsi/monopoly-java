@@ -81,6 +81,7 @@ public class Main {
                 int dado1 = dado.lancarDado();
                 int dado2 = dado.lancarDado();
                 int resultadoDados = dado1 + dado2;
+                //int resultadoDados = 12;
 
                 System.out.print("O jogador " + peca.getJogador().getNome() + " tirou " + dado1 + "," + dado2);
                 peca.mover(resultadoDados);
