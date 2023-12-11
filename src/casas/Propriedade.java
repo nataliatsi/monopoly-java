@@ -1,6 +1,5 @@
 package casas;
 
-import casas.Casa;
 import jogo.Jogador;
 import jogo.Peca;
 
@@ -9,25 +8,14 @@ import java.util.Scanner;
 public class Propriedade extends Casa {
     private String grupo;
     private int preco;
-    private int aluguelSemCasas;
-    private int aluguelComUmaCasa, aluguelComDuasCasa, aluguelComTresCasa, aluguelComQuatroCasa;
-    private int hotel;
-    private int hipoteca;
-    private int precoDaCasa;
+    private int aluguel;
     private Jogador proprietario;
 
-    public Propriedade(int posicao, String nome, boolean estaNaPrisao, String grupo, int preco, int aluguelSemCasas, int aluguelComUmaCasa, int aluguelComDuasCasa, int aluguelComTresCasa, int aluguelComQuatroCasa, int hotel, int hipoteca, int precoDaCasa) {
+    public Propriedade(int posicao, String nome, boolean estaNaPrisao, String grupo, int preco, int aluguel) {
         super(posicao, nome, estaNaPrisao);
         this.grupo = grupo;
         this.preco = preco;
-        this.aluguelSemCasas = aluguelSemCasas;
-        this.aluguelComUmaCasa = aluguelComUmaCasa;
-        this.aluguelComDuasCasa = aluguelComDuasCasa;
-        this.aluguelComTresCasa = aluguelComTresCasa;
-        this.aluguelComQuatroCasa = aluguelComQuatroCasa;
-        this.hotel = hotel;
-        this.hipoteca = hipoteca;
-        this.precoDaCasa = precoDaCasa;
+        this.aluguel = aluguel;
         this.proprietario = null;
     }
 
@@ -43,68 +31,12 @@ public class Propriedade extends Casa {
         this.preco = preco;
     }
 
-    public int getAluguelSemCasas() {
-        return aluguelSemCasas;
+    public int getAluguel() {
+        return aluguel;
     }
 
-    public void setAluguelSemCasas(int aluguelSemCasas) {
-        this.aluguelSemCasas = aluguelSemCasas;
-    }
-
-    public int getAluguelComUmaCasa() {
-        return aluguelComUmaCasa;
-    }
-
-    public void setAluguelComUmaCasa(int aluguelComUmaCasa) {
-        this.aluguelComUmaCasa = aluguelComUmaCasa;
-    }
-
-    public int getAluguelComDuasCasa() {
-        return aluguelComDuasCasa;
-    }
-
-    public void setAluguelComDuasCasa(int aluguelComDuasCasa) {
-        this.aluguelComDuasCasa = aluguelComDuasCasa;
-    }
-
-    public int getAluguelComTresCasa() {
-        return aluguelComTresCasa;
-    }
-
-    public void setAluguelComTresCasa(int aluguelComTresCasa) {
-        this.aluguelComTresCasa = aluguelComTresCasa;
-    }
-
-    public int getAluguelComQuatroCasa() {
-        return aluguelComQuatroCasa;
-    }
-
-    public void setAluguelComQuatroCasa(int aluguelComQuatroCasa) {
-        this.aluguelComQuatroCasa = aluguelComQuatroCasa;
-    }
-
-    public int getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(int hotel) {
-        this.hotel = hotel;
-    }
-
-    public int getHipoteca() {
-        return hipoteca;
-    }
-
-    public void setHipoteca(int hipoteca) {
-        this.hipoteca = hipoteca;
-    }
-
-    public int getPrecoDaCasa() {
-        return precoDaCasa;
-    }
-
-    public void setPrecoDaCasa(int precoDaCasa) {
-        this.precoDaCasa = precoDaCasa;
+    public void setAluguel(int aluguel) {
+        this.aluguel = aluguel;
     }
 
     public Jogador getProprietario() {
@@ -145,7 +77,7 @@ public class Propriedade extends Casa {
         if (getProprietario() != null) {
             System.out.println("A propriedade " + getNome() + " já possui proprietário.");
 
-            int taxa = getAluguelSemCasas();
+            int taxa = getAluguel();
 
             peca.getJogador().diminuirDinheiro(taxa);
             getProprietario().aumentarDinheiro(taxa);

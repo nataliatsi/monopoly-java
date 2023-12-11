@@ -5,7 +5,7 @@ import casas.abstract_factory.FerroviaFactory;
 
 public class FerroviaFactoryConcreta implements FerroviaFactory {
     @Override
-    public Ferrovia criarFerrovia(int posicao, String nome, boolean estaNaPrisao, int preco, int hipoteca) {
-        return new Ferrovia(posicao, nome, estaNaPrisao, preco, hipoteca);
+    public Ferrovia criarFerrovia(int posicao, String nome, boolean estaNaPrisao, int preco, int aluguel) {
+        return new Ferrovia(posicao, nome, estaNaPrisao, preco, aluguel);
     }
 }

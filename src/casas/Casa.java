@@ -33,5 +33,4 @@ public abstract class Casa {
     public abstract void venderPara(Jogador jogador);
     public  abstract void executarAcao(Peca peca);
 
-
 }

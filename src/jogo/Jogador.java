@@ -10,14 +10,12 @@ public class Jogador {
     private String nome;
     private String cor;
     private int dinheiro;
-    private boolean naPrisao;
     private ArrayList<Titulo> titulos = new ArrayList<>();
 
     public Jogador(String nome, String cor) {
         this.nome = nome;
         this.cor = cor;
 
-        naPrisao = false;
         dinheiro = 1500;
     }
 
@@ -30,12 +28,6 @@ public class Jogador {
     public int getDinheiro(){
         return dinheiro;
     }
-    public boolean isNaPrisao() {
-        return naPrisao;
-    }
-    public void setNaPrisao(boolean naPrisao) {
-        this.naPrisao = naPrisao;
-    }
     public void diminuirDinheiro(int valor){ dinheiro -= valor; }
     public void aumentarDinheiro(int valor) {
         dinheiro += valor;
@@ -46,7 +38,7 @@ public class Jogador {
                 dinheiro -= propriedade.getPreco();
                 propriedade.setProprietario(this);
 
-                adicionarTitulo(new Titulo(propriedade.getNome(), propriedade.getGrupo(), propriedade.getPrecoDaCasa(),0));
+                adicionarTitulo(new Titulo(propriedade.getNome(), propriedade.getGrupo(), propriedade.getPreco()));
                 System.out.println(getNome() + " comprou a propriedade " + propriedade.getNome() + " por $" + propriedade.getPreco() + ".");
             } else {
                 System.out.println(getNome() + ", você não tem dinheiro suficiente para comprar esta propriedade.");
@@ -57,7 +49,7 @@ public class Jogador {
         if (dinheiro >= ferrovia.getPreco()) {
             dinheiro -= ferrovia.getPreco();
 
-            adicionarTitulo(new Titulo(ferrovia.getNome(), " ", ferrovia.getPreco(),ferrovia.getHipoteca()));
+            adicionarTitulo(new Titulo(ferrovia.getNome(), " ", ferrovia.getPreco()));
             System.out.println(getNome() + " comprou a ferrovia " + ferrovia.getNome() + " por $" + ferrovia.getPreco() + ".");
         } else {
             System.out.println(getNome() + ", você não tem dinheiro suficiente para comprar esta ferrovia.");
@@ -68,7 +60,7 @@ public class Jogador {
         if(dinheiro >= servicoPublico.getPreco()){
             dinheiro -= servicoPublico.getPreco();
 
-            adicionarTitulo(new Titulo(servicoPublico.getNome(), " ", servicoPublico.getPreco(), 150));
+            adicionarTitulo(new Titulo(servicoPublico.getNome(), " ", servicoPublico.getPreco()));
             System.out.println(getNome() + " comprou o seviço público " + servicoPublico.getNome() + " por $" + servicoPublico.getPreco() + ".");
         } else {
             System.out.println(getNome() + ", você não tem dinheiro suficiente para comprar este serviço.");

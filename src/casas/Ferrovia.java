@@ -8,22 +8,33 @@ import java.util.Scanner;
 
 public class Ferrovia extends Casa {
     private int preco;
-    private int hipoteca;
+    private int corrida;
     private  Jogador proprietario;
 
-    public Ferrovia(int posicao, String nome, boolean estaNaPrisao, int preco, int hipoteca) {
+    public Ferrovia(int posicao, String nome, boolean estaNaPrisao, int preco, int corrida) {
         super(posicao, nome, estaNaPrisao);
         this.preco = preco;
-        this.hipoteca = hipoteca;
+        this.corrida = corrida;
+
 
     }
     public int getPreco() {
         return preco;
     }
     public void setPreco(){ this.preco = preco; }
-    public int getHipoteca() {
-        return hipoteca;
+
+    public void setPreco(int preco) {
+        this.preco = preco;
     }
+
+    public int getCorrida() {
+        return corrida;
+    }
+
+    public void setCorrida(int corrida) {
+        this.corrida = corrida;
+    }
+
     public Jogador getProprietario() {
         return proprietario;
     }
@@ -62,7 +73,7 @@ public class Ferrovia extends Casa {
         if (getProprietario() != null) {
             System.out.println("A ferrovia " + getNome() + " já possui proprietário.");
 
-            int taxa = getPreco();
+            int taxa = getCorrida();
 
             peca.getJogador().diminuirDinheiro(taxa);
             getProprietario().aumentarDinheiro(taxa);

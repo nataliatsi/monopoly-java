@@ -3,14 +3,12 @@ package jogo;
 public class Titulo {
     private String nome;
     private String cor;
-    private int aluguel;
-    private int corrida;
+    private int preco;
 
-    public Titulo(String nome, String cor, int aluguel, int corrida) {
+    public Titulo(String nome, String cor, int preco) {
         this.nome = nome;
         this.cor = cor;
-        this.aluguel = aluguel;
-        this.corrida = corrida;
+        this.preco = preco;
     }
 
     public String getNome() {
@@ -29,19 +27,12 @@ public class Titulo {
         this.cor = cor;
     }
 
-    public int getAluguel() {
-        return aluguel;
+    public int getPreco() {
+        return preco;
     }
 
-    public void setAluguel(int aluguel) {
-        this.aluguel = aluguel;
+    public void setPreco(int preco) {
+        this.preco = preco;
     }
 
-    public int getCorrida() {
-        return corrida;
-    }
-
-    public void setCorrida(int corrida) {
-        this.corrida = corrida;
-    }
 }
