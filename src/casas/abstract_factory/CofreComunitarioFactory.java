@@ -4,5 +4,5 @@ import casas.CofreComunitario;
 
 public interface CofreComunitarioFactory {
 
-    CofreComunitario criarCofreComunitario(int posicao, String nome, boolean estaNaPrisao);
+    CofreComunitario criarCofreComunitario(int posicao, String nome);
 }

@@ -12,8 +12,8 @@ public class Prisao extends Casa{
     private boolean visitandoPrisao;
     private Map<String, Comando> comandos;
 
-    public Prisao(int posicao, String nome, boolean estaNaPrisao, boolean visitandoPrisao) {
-        super(posicao, nome, estaNaPrisao);
+    public Prisao(int posicao, String nome, boolean visitandoPrisao) {
+        super(posicao, nome);
         this.visitandoPrisao = visitandoPrisao;
         inicializarComandos();
     }

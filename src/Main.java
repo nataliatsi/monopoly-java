@@ -94,9 +94,29 @@ public class Main {
                 Casa casaAtual = tabuleiro.getCasaNaPosicao(novaPosicao);
                 casaAtual.executarAcao(peca);
 
-                System.out.println("\n");
+                if (peca.jogadorFaliu(peca.getJogador())) {
+                    System.out.println("O jogador " + peca.getJogador().getNome() + " faliu e foi expulso do jogo!");
+                    pecas.remove(jogadorAtual);
+                    numJogadores--;
 
+                    if (numJogadores == 1) {
+
+                        System.out.println("Parabéns! O jogador " + pecas.get(0).getJogador().getNome() + " venceu!");
+                        jogoEncerrado = true;
+
+                    } else {
+                        System.out.println("Continuando o jogo com " + numJogadores + " jogadores.\n");
+                    }
+                } else {
+                    System.out.println("\n");
+                    jogadorAtual = (jogadorAtual + 1) % numJogadores;
+                }
+
+                /*
+                System.out.println("\n");
                 jogadorAtual = (jogadorAtual + 1) % numJogadores;
+
+                 */
 
             } else if ("status".equalsIgnoreCase(comando)) {
                 peca.status();

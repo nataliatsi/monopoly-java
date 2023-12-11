@@ -11,8 +11,8 @@ public class Propriedade extends Casa {
     private int aluguel;
     private Jogador proprietario;
 
-    public Propriedade(int posicao, String nome, boolean estaNaPrisao, String grupo, int preco, int aluguel) {
-        super(posicao, nome, estaNaPrisao);
+    public Propriedade(int posicao, String nome, String grupo, int preco, int aluguel) {
+        super(posicao, nome);
         this.grupo = grupo;
         this.preco = preco;
         this.aluguel = aluguel;

@@ -81,10 +81,12 @@ public class Movimento extends Cartas {
 
         return servicoMaisProximo;
     }
+
     @Override
     public void executarAcao(Peca peca) {
         System.out.println("\nAvançando para " + getNovaPosicao() + ".");
         int posicaoAtual = peca.getPosicao();
+
 
         if(isIrParaFerrovia()){
 

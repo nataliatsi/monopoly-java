@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class ServicoPublico extends Casa{
     private int preco;
     private Jogador proprietario;
-    public ServicoPublico(int posicao, String nome, boolean estaNaPrisao, int preco) {
-        super(posicao, nome, estaNaPrisao);
+    public ServicoPublico(int posicao, String nome, int preco) {
+        super(posicao, nome);
         this.preco = preco;
         this.proprietario = null;
     }

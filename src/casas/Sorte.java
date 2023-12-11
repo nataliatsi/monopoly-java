@@ -14,8 +14,8 @@ public class Sorte extends Casa {
     private ArrayList<Cartas> cartas;
     private int indexAtual;
 
-    public Sorte(int posicao, String nome, boolean estaNaPrisao){
-        super(posicao, nome, estaNaPrisao);
+    public Sorte(int posicao, String nome){
+        super(posicao, nome);
         this.indexAtual = 0;
         this.cartas = new ArrayList<>();
         inicializarCartas();
@@ -70,8 +70,16 @@ public class Sorte extends Casa {
     public void executarAcao(Peca peca) {
         System.out.println(" e o peão avançou para " + getPosicao() + " – " + getNome() + ".");
         Cartas cartaSorteada = getCartaAleatoria();
-        System.out.println(cartaSorteada.getNome());
-        System.out.println(cartaSorteada.getDescricao());
-        cartaSorteada.executarAcao(peca);
+
+        if(cartaSorteada.getNumero() == 7){
+            peca.voltar(3);
+
+        } else {
+
+            System.out.println(cartaSorteada.getNome());
+            System.out.println(cartaSorteada.getDescricao());
+            cartaSorteada.executarAcao(peca);
+        }
+
     }
 }

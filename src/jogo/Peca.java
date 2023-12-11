@@ -23,6 +23,12 @@ public class Peca {
     public Jogador getJogador() {
         return jogador;
     }
+    public void setPosicao(int posicao){
+        this.posicao = posicao;
+    }
+    public boolean jogadorFaliu(Jogador jogador) {
+        return getJogador().getDinheiro() < 0;
+    }
     public Tabuleiro getTabuleiro() {
         return tabuleiro;
     }
@@ -31,8 +37,18 @@ public class Peca {
     }
 
     public void mover(int passos) {
-        // posicao += passos;
         posicao = (posicao + passos - 1) % 40 + 1;
+    }
+
+    public void voltar(int casas) {
+
+        int novaPosicao = getPosicao() - casas;
+        if (novaPosicao < 1) {
+            novaPosicao += 40;
+        }
+        setPosicao(novaPosicao);
+        System.out.println("O jogador " + getJogador().getNome() + " voltou " + casas + " casas.");
+        System.out.println("Posição atual: " + getPosicao() + " em " + getNomeDaCasa());
     }
 
     public int getJogadasSeguidas() {

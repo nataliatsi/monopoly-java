@@ -4,8 +4,8 @@ import jogo.Jogador;
 import jogo.Peca;
 
 public class CasaTeste extends Casa{
-    public CasaTeste(int posicao, String nome, boolean estaNaPrisao) {
-        super(posicao, nome, estaNaPrisao);
+    public CasaTeste(int posicao, String nome) {
+        super(posicao, nome);
     }
 
     @Override

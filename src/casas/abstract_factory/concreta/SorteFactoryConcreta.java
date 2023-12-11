@@ -5,7 +5,7 @@ import casas.abstract_factory.SorteFactory;
 
 public class SorteFactoryConcreta implements SorteFactory {
     @Override
-    public Sorte criarSorte(int posicao, String nome, boolean estaNaPrisao) {
-        return new Sorte(posicao, nome, estaNaPrisao);
+    public Sorte criarSorte(int posicao, String nome) {
+        return new Sorte(posicao, nome);
     }
 }
