@@ -7,11 +7,10 @@ import java.util.Scanner;
 
 public class ServicoPublico extends Casa{
     private int preco;
-    private Jogador proprietario;
+
     public ServicoPublico(int posicao, String nome, int preco) {
         super(posicao, nome);
         this.preco = preco;
-        this.proprietario = null;
     }
 
     public int getPreco() {
@@ -20,14 +19,6 @@ public class ServicoPublico extends Casa{
 
     public void setPreco(int preco) {
         this.preco = preco;
-    }
-
-    public Jogador getProprietario() {
-        return proprietario;
-    }
-
-    public void setProprietario(Jogador proprietario) {
-        this.proprietario = proprietario;
     }
 
     @Override

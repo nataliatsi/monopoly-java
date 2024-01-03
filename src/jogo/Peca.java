@@ -27,10 +27,7 @@ public class Peca {
         this.posicao = posicao;
     }
     public boolean jogadorFaliu(Jogador jogador) {
-        return getJogador().getDinheiro() < 0;
-    }
-    public Tabuleiro getTabuleiro() {
-        return tabuleiro;
+        return jogador.getDinheiro() < 0;
     }
     public int getPosicao() {
         return posicao;

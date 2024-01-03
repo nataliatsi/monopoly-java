@@ -9,13 +9,11 @@ import java.util.Scanner;
 public class Ferrovia extends Casa {
     private int preco;
     private int corrida;
-    private  Jogador proprietario;
 
     public Ferrovia(int posicao, String nome, int preco, int corrida) {
         super(posicao, nome);
         this.preco = preco;
         this.corrida = corrida;
-
 
     }
     public int getPreco() {
@@ -33,14 +31,6 @@ public class Ferrovia extends Casa {
 
     public void setCorrida(int corrida) {
         this.corrida = corrida;
-    }
-
-    public Jogador getProprietario() {
-        return proprietario;
-    }
-
-    public void setProprietario(Jogador proprietario) {
-        this.proprietario = proprietario;
     }
 
     @Override

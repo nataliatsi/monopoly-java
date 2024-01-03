@@ -3,6 +3,7 @@ package cartas;
 import casas.ServicoPublico;
 import casas.Ferrovia;
 import jogo.Peca;
+import jogo.Tabuleiro;
 
 import java.util.List;
 
@@ -12,7 +13,6 @@ public class Movimento extends Cartas {
     private boolean podeReceberBonus;
     private boolean irParaFerrovia;
     private boolean irParaServicoPublico;
-    private boolean irParaPrisao;
 
     public Movimento(int numero, String nome, String descricao, int novaPosicao, boolean podeReceberBonus, boolean irParaFerrovia, boolean irParaServicoPublico) {
         super(numero, nome, descricao);
@@ -20,6 +20,7 @@ public class Movimento extends Cartas {
         this.podeReceberBonus = podeReceberBonus;
         this.irParaFerrovia = irParaFerrovia;
         this.irParaServicoPublico = irParaServicoPublico;
+
     }
 
     public int getNovaPosicao() {
@@ -85,6 +86,7 @@ public class Movimento extends Cartas {
     @Override
     public void executarAcao(Peca peca) {
         System.out.println("\nAvançando para " + getNovaPosicao() + ".");
+
         int posicaoAtual = peca.getPosicao();
 
 

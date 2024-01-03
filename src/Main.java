@@ -112,11 +112,6 @@ public class Main {
                     jogadorAtual = (jogadorAtual + 1) % numJogadores;
                 }
 
-                /*
-                System.out.println("\n");
-                jogadorAtual = (jogadorAtual + 1) % numJogadores;
-
-                 */
 
             } else if ("status".equalsIgnoreCase(comando)) {
                 peca.status();

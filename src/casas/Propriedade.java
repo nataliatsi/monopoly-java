@@ -9,14 +9,12 @@ public class Propriedade extends Casa {
     private String grupo;
     private int preco;
     private int aluguel;
-    private Jogador proprietario;
 
     public Propriedade(int posicao, String nome, String grupo, int preco, int aluguel) {
         super(posicao, nome);
         this.grupo = grupo;
         this.preco = preco;
         this.aluguel = aluguel;
-        this.proprietario = null;
     }
 
     public String getGrupo() {
@@ -37,14 +35,6 @@ public class Propriedade extends Casa {
 
     public void setAluguel(int aluguel) {
         this.aluguel = aluguel;
-    }
-
-    public Jogador getProprietario() {
-        return proprietario;
-    }
-
-    public void setProprietario(Jogador proprietario) {
-        this.proprietario = proprietario;
     }
 
     @Override
